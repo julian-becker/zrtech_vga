@@ -25,7 +25,7 @@
 # Notes:
 #
 # 1) The default values for assignments are stored in the file:
-#		zrtech_blinky_assignment_defaults.qdf
+#		zrtech_assignment_defaults.qdf
 #    If this file doesn't exist, see file:
 #		assignment_defaults.qdf
 #
@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE EP4CE6E22C8
-set_global_assignment -name TOP_LEVEL_ENTITY zrtech_blinky
+set_global_assignment -name TOP_LEVEL_ENTITY zrtech_top
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 18.0.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "18:46:13  AUGUST 08, 2018"
 set_global_assignment -name LAST_QUARTUS_VERSION "18.0.0 Lite Edition"
@@ -50,16 +50,30 @@ set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
 set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
-set_global_assignment -name VHDL_FILE zrtech_blinky.vhd
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name NUM_PARALLEL_PROCESSORS 2
-set_location_assignment PIN_141 -to led_d5_n
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_location_assignment PIN_24 -to clk
-set_location_assignment PIN_1 -to led_d4_n
-set_location_assignment PIN_2 -to led_d3_n
-set_location_assignment PIN_3 -to led_d2_n
+set_location_assignment PIN_3 -to ds_dp
+set_location_assignment PIN_133 -to ds_en_n[1]
+set_location_assignment PIN_136 -to ds_en_n[2]
+set_location_assignment PIN_135 -to ds_en_n[3]
+set_location_assignment PIN_137 -to ds_en_n[4]
+set_location_assignment PIN_143 -to ds_a_b_c_d_e_f_g[1]
+set_location_assignment PIN_144 -to ds_a_b_c_d_e_f_g[2]
+set_location_assignment PIN_1 -to ds_a_b_c_d_e_f_g[3]
+set_location_assignment PIN_141 -to ds_a_b_c_d_e_f_g[4]
+set_location_assignment PIN_142 -to ds_a_b_c_d_e_f_g[5]
+set_location_assignment PIN_138 -to ds_a_b_c_d_e_f_g[6]
+set_location_assignment PIN_2 -to ds_a_b_c_d_e_f_g[7]
+set_global_assignment -name VHDL_INPUT_VERSION VHDL_2008
+set_global_assignment -name VHDL_SHOW_LMF_MAPPING_MESSAGES OFF
+set_global_assignment -name VHDL_FILE sevenseg_pkg.vhd
+set_global_assignment -name VHDL_FILE sevenseg.vhd
+set_global_assignment -name VHDL_FILE digit_selector.vhd
+set_global_assignment -name VHDL_FILE sevenseg_display.vhd
+set_global_assignment -name VHDL_FILE zrtech_top.vhd
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
