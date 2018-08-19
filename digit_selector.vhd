@@ -3,7 +3,7 @@ use ieee.std_logic_1164.all;
 
 entity digit_selector is
 	port (
-		clk : in std_logic;
+		clk : in std_ulogic;
 		digit_select : out natural range 0 to 3
 	);
 end;

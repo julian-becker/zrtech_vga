@@ -6,18 +6,18 @@ entity workbench is
 end;
 
 architecture wb of workbench is
-	signal clk            : std_logic := '0';
+	signal clk            : std_ulogic := '0';
 
 	signal digits         : digit_vector_t(1 to 4) := (1,2,3,4);
 	signal digit_sevenseg : sevenseg_t := (others => '0');
-	signal digit_select   : std_logic_vector(1 to 4) := (others => '0');
+	signal digit_select   : std_ulogic_vector(1 to 4) := (others => '0');
 
-	signal increment     : std_logic := '0';
+	signal increment     : std_ulogic := '0';
 	signal counter_value : natural range 0 to 10;
 
-	signal ds_a_b_c_d_e_f_g : std_logic_vector(1 to 7);
-	signal ds_dp            : std_logic;
-	signal ds_en_n          : std_logic_vector(1 to 4);
+	signal ds_a_b_c_d_e_f_g : std_ulogic_vector(1 to 7);
+	signal ds_dp            : std_ulogic;
+	signal ds_en_n          : std_ulogic_vector(1 to 4);
 
 
 

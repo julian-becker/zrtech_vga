@@ -6,9 +6,9 @@ entity relax_clock is
 		RELAX_CYCLES : positive
 	);
 	port (
-		clk         : in  std_logic;
-		reset       : in  std_logic;
-		clk_relaxed : out std_logic
+		clk         : in  std_ulogic;
+		reset       : in  std_ulogic;
+		clk_relaxed : out std_ulogic
 	);
 end;
 

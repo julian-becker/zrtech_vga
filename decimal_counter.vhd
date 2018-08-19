@@ -8,16 +8,16 @@ entity decimal_counter is
 		DIGITS       : positive
 	);
 	port (
-		clk          : in  std_logic;
-		reset        : in  std_logic;
-		increment    : in  std_logic;
+		clk          : in  std_ulogic;
+		reset        : in  std_ulogic;
+		increment    : in  std_ulogic;
 		digit_vector : out digit_vector_t(3 downto 0)
 	);
 end;
 
 architecture impl of decimal_counter is
-	signal increment_vector : std_logic_vector(3 downto 0) := "0000";
-	signal overflow_vector  : std_logic_vector(3 downto 0) := "0000";
+	signal increment_vector : std_ulogic_vector(3 downto 0) := "0000";
+	signal overflow_vector  : std_ulogic_vector(3 downto 0) := "0000";
 
 begin
 	increment_vector <= overflow_vector(2 downto 0) & increment;

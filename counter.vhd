@@ -6,10 +6,10 @@ entity counter is
 		COUNTER_MAX : integer
 	);
 	port (
-		clk       : in  std_logic;
-		reset     : in  std_logic;
-		increment : in  std_logic;
-		overflow  : out std_logic;
+		clk       : in  std_ulogic;
+		reset     : in  std_ulogic;
+		increment : in  std_ulogic;
+		overflow  : out std_ulogic;
 		value     : out natural range 0 to COUNTER_MAX
 	);
 end;
@@ -17,7 +17,7 @@ end;
 architecture impl of counter is
 	type state_t is record
 		counter_value : natural range 0 to COUNTER_MAX;
-		overflow      : std_logic;
+		overflow      : std_ulogic;
 	end record;
 
 	constant INITIAL_STATE : state_t := (counter_value => 0, overflow => '0');

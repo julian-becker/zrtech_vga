@@ -72,6 +72,36 @@ set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_location_assignment PIN_89 -to key4
+set_location_assignment PIN_100 -to HSYNC
+set_location_assignment PIN_101 -to VSYNC
+set_location_assignment PIN_110 -to VB[4]
+set_location_assignment PIN_106 -to VB[3]
+set_location_assignment PIN_105 -to VB[2]
+set_location_assignment PIN_104 -to VB[1]
+set_location_assignment PIN_103 -to VB[0]
+set_location_assignment PIN_119 -to VG[5]
+set_location_assignment PIN_115 -to VG[4]
+set_location_assignment PIN_114 -to VG[3]
+set_location_assignment PIN_113 -to VG[2]
+set_location_assignment PIN_112 -to VG[1]
+set_location_assignment PIN_111 -to VG[0]
+set_location_assignment PIN_126 -to VR[4]
+set_location_assignment PIN_125 -to VR[3]
+set_location_assignment PIN_124 -to VR[2]
+set_location_assignment PIN_121 -to VR[1]
+set_location_assignment PIN_120 -to VR[0]
+set_global_assignment -name ENABLE_OCT_DONE OFF
+set_global_assignment -name ENABLE_CONFIGURATION_PINS OFF
+set_global_assignment -name ENABLE_BOOT_SEL_PIN OFF
+set_global_assignment -name USE_CONFIGURATION_DEVICE OFF
+set_global_assignment -name CRC_ERROR_OPEN_DRAIN OFF
+set_global_assignment -name CYCLONEII_RESERVE_NCEO_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
+set_global_assignment -name QIP_FILE PLATFORM/synthesis/PLATFORM.qip
+set_global_assignment -name VHDL_FILE vga.vhd
 set_global_assignment -name VHDL_FILE relax_clock.vhd
 set_global_assignment -name VHDL_FILE counter.vhd
 set_global_assignment -name VHDL_FILE decimal_counter.vhd
