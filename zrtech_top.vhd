@@ -21,33 +21,44 @@ end;
 architecture top of zrtech_top is
     component PLATFORM is
         port (
-            clk_clk                        : in  std_ulogic := 'X'; -- clk
-            reset_reset_n                  : in  std_ulogic := 'X'; -- reset_n
-            altpll_0_c0_25mhz_clk          : out std_ulogic;        -- clk
-            altpll_0_locked_conduit_export : out std_ulogic;        -- export
-            altpll_0_areset_conduit_export : in  std_ulogic := 'X');-- export
+            altpll_0_areset_conduit_export : in  std_logic := 'X'; -- export
+            altpll_0_c0_108mhz_clk         : out std_logic;        -- clk
+            altpll_0_locked_conduit_export : out std_logic;        -- export
+            clk_clk                        : in  std_logic := 'X'; -- clk
+            reset_reset_n                  : in  std_logic := 'X'; -- reset_n
+            altpll_0_c1_40mhz_clk          : out std_logic;        -- clk
+            altpll_1_c0_65_mhz_clk         : out std_logic;        -- clk
+            altpll_1_c1_25mhz_clk          : out std_logic;        -- clk
+            altpll_1_areset_conduit_export : in  std_logic := 'X'; -- export
+            altpll_1_locked_conduit_export : out std_logic         -- export
+        );
     end component PLATFORM;
 
 	signal digits            : digit_vector_t(1 to 4) := (1, 2, 3, 4);
 	signal counter_value     : natural range 0 to 9 := 0;
 	signal increment_counter : std_ulogic;
 	signal reset             : std_ulogic := '1';
+	
+	signal clk_108MHz        : std_ulogic;
+	signal clk_65MHz         : std_ulogic;
+	signal clk_40MHz         : std_ulogic;
 	signal clk_25MHz         : std_ulogic;
 begin
 	ds_dp <= '0';
 	reset <= not key4;
 
-    genclocks : component PLATFORM
+    sopc_platform : component PLATFORM
         port map (
             clk_clk                        => clk,
             reset_reset_n                  => not reset,
-            altpll_0_c0_25mhz_clk          => clk_25MHz,
-            altpll_0_locked_conduit_export => open,
-            altpll_0_areset_conduit_export => open);
+            altpll_0_c0_108mhz_clk         => clk_108MHz,
+            altpll_0_c1_40mhz_clk          => clk_40MHz,
+            altpll_1_c0_65_mhz_clk         => clk_65MHz,
+            altpll_1_c1_25mhz_clk          => clk_25MHz);
 
     vga_disp : entity work.vga
     	port map (
-    		clk_25MHz => clk_25MHz,
+    		clk       => clk_108MHz,
     		reset     => reset,
     		h_sync    => HSYNC,
     		v_sync    => VSYNC,
