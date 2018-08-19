@@ -3,5 +3,6 @@ incremental_db
 output_files
 simulation
 PLATFORM
+.qsys_edit
 *.cf
 *.bak
