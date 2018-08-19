@@ -6,7 +6,7 @@ use work.sevenseg_pkg.all;
 entity sevenseg_display is
 	port (
 		clk : in std_logic;
-		digits : in digit_vector_t(3 downto 0);
+		digits : in digit_vector_t(0 to 3);
 		digit_sevenseg : out sevenseg_t;
 		digit_select   : out std_logic_vector(1 to 4)
 	);

@@ -15,8 +15,6 @@ architecture wb of workbench is
 	signal increment     : std_logic := '0';
 	signal counter_value : natural range 0 to 10;
 
-
-
 	signal ds_a_b_c_d_e_f_g : std_logic_vector(1 to 7);
 	signal ds_dp            : std_logic;
 	signal ds_en_n          : std_logic_vector(1 to 4);

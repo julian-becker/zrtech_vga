@@ -26,7 +26,7 @@ begin
 	display : entity work.sevenseg_display
 		port map (
 			clk            => clk,
-			digits         => (4 downto 1 => digits),
+			digits         => digits,
 			digit_sevenseg => ds_a_b_c_d_e_f_g,
 			digit_select   => ds_en_n);
 
